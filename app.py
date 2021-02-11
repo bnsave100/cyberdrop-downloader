@@ -17,7 +17,7 @@ except:
 
 
 class CyberDrop:
-    THREADS = 10
+    THREADS = 16
     HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0'}
 
     def __init__(self):
@@ -40,7 +40,7 @@ class CyberDrop:
             os.mkdir('./downloads')
 
     def downloadImages(self, url):
-        fileExt = re.search(r'(\.mp4|\.gif|\.jpg|\.png|\.webm|\.jpeg)', url).group(1)
+        fileExt = re.search(r'(\.mp4|\.gif|\.jpg|\.png|\.webm|\.jpeg|\.m4v|\.mkv|\.m4p)', url).group(1)
         fileName = uuid4().hex
         print(f'{str(datetime.now())[:-7]} INFO Downloading: {fileName}{fileExt}', end='\r')
         with open('./downloads/' + fileName + fileExt, 'wb') as f:
